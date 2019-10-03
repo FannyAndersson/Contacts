@@ -38,3 +38,31 @@ let button = document.createElement('BUTTON');
 button.innerHTML = 'Lägg till kontakt';
 button.setAttribute('class', 'btn-add-name')
 document.body.append(button)
+
+window.addEventListener('click', e => {
+    if (e.target.closest('button')) {
+        // [].slice.call(document.querySelectorAll('.submit').forEach((elm) => {
+        //     console.log(elm);
+        // }));
+
+        let valOfInput = document.querySelectorAll('input[type="text"]');
+
+        valOfInput.forEach(val => {
+            let ul = document.createElement('UL');
+            document.body.append(ul);
+            let myLi = val.value;
+            let li = document.createElement('LI');
+            ul.append(li);
+            li.append(myLi);
+            console.log(myLi);
+        });
+
+        // for (let i = 0; i < l; i++) {
+        //     input = val[i]
+        //     if (input.value) {
+        //         console.log(input.value);
+
+        //     }
+        // }
+    }
+});
