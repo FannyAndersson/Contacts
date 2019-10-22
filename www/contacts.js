@@ -1,191 +1,101 @@
-let body = document.body;
+class Contacts extends App {
+    constructor() {
+        super();
 
-let divForHeading = document.createElement('div');
-divForHeading.setAttribute('class', 'div-for-heading')
-body.append(divForHeading);
+        this.section = document.createElement('section');
+        this.container = document.createElement('container');
 
-let div = document.createElement('div');
-div.setAttribute('class', 'div-wrapper')
-divForHeading.append(div);
+        this.displaySavedContacts();
+    }
 
-let heading = document.createElement('h1');
-heading.innerHTML = 'Kontaktlista';
-div.append(heading);
+    displaySavedContacts() {
+        let body = document.querySelector('.body');
 
-let form = document.createElement('form');
-form.setAttribute('class', 'form')
-body.append(form);
+        this.section.setAttribute('class', 'contacts-section');
+        body.append(this.section);
+        this.container.setAttribute('class', 'container');
 
-let container = document.createElement('container');
-container.setAttribute('class', 'div-form')
-form.append(container);
+        let divForHeading = document.createElement('div');
+        divForHeading.setAttribute('class', 'div-for-heading');
 
-let colForInputs = document.createElement('div');
-container.append(colForInputs);
+        let div = document.createElement('div');
+        div.setAttribute('class', 'div-wrapper-contacts');
+        divForHeading.append(div);
 
-let rowForName = document.createElement('row');
-rowForName.setAttribute('class', 'row-for-name');
-colForInputs.append(rowForName);
+        let heading = document.createElement('h3');
+        heading.setAttribute('class', 'heading');
+        heading.innerHTML = 'Kontaktlista';
+        div.append(heading);
+        this.container.append(divForHeading);
 
+        this.section.append(this.container);
 
-let nameLabel = document.createElement('label');
-nameLabel.innerHTML = 'Namn';
-rowForName.append(nameLabel);
+        contacts.forEach(contact => {
+            let div = document.createElement('div');
+            div.setAttribute('data-contactid', contact.id);
+            div.setAttribute('class', 'div-display-container');
 
-let inputFieldName = document.createElement('input');
-inputFieldName.setAttribute('type', 'text');
-inputFieldName.setAttribute('value', '');
-inputFieldName.setAttribute('id', 'name')
-inputFieldName.setAttribute('placeholder', 'Skriv in ditt namn')
-inputFieldName.setAttribute('name', 'submit');
-rowForName.append(inputFieldName);
+            let rowForName = document.createElement('row');
+            rowForName.setAttribute('class', 'row-for-name');
 
-let rowForPhoneNumber = document.createElement('row');
-rowForPhoneNumber.setAttribute('class', 'row-for-phonenumber');
-colForInputs.append(rowForPhoneNumber);
+            let iName = document.createElement('i');
+            iName.setAttribute('class', 'fas fa-user');
+            rowForName.append(iName);
 
-let phoneNumberLabel = document.createElement('label');
-phoneNumberLabel.innerHTML = 'Telefonnummer';
-rowForPhoneNumber.append(phoneNumberLabel);
+            let spanName = document.createElement('span');
+            spanName.setAttribute('class', 'span-name');
+            spanName.innerHTML = contact.current.name;
+            rowForName.append(spanName);
 
-let inputFieldPhonenumber = document.createElement('input');
-inputFieldPhonenumber.setAttribute('type', 'text');
-inputFieldPhonenumber.setAttribute('value', '');
-inputFieldPhonenumber.setAttribute('id', 'phone')
-inputFieldPhonenumber.setAttribute('placeholder', 'Skriv in ditt telefonnummer');
-inputFieldPhonenumber.setAttribute('class', 'submit');
-rowForPhoneNumber.append(inputFieldPhonenumber);
+            let modalButton = document.createElement('button');
+            modalButton.setAttribute('data-contactid', contact.id);
+            modalButton.setAttribute('class', 'edit-contact-modal');
+            modalButton.innerHTML = 'Redigera kontakt';
+            rowForName.append(modalButton);
+            div.append(rowForName);
 
-let buttonMorePhone = document.createElement('button');
-buttonMorePhone.innerHTML = '+';
-buttonMorePhone.setAttribute('class', 'btn-add-more-phone');
-rowForPhoneNumber.append(buttonMorePhone);
+            let rowForPhone = document.createElement('row');
+            rowForPhone.setAttribute('class', 'row-for-phone');
 
-let rowForEmail = document.createElement('row');
-rowForEmail.setAttribute('class', 'ow-for-email');
-colForInputs.append(rowForEmail);
+            let iPhone = document.createElement('i');
+            iPhone.setAttribute('class', 'fas fa-phone');
+            rowForPhone.append(iPhone);
 
-let emailLabel = document.createElement('label');
-emailLabel.innerHTML = 'Email';
-rowForEmail.append(emailLabel);
+            let spanPhone = document.createElement('span');
+            spanPhone.setAttribute('class', 'span-phone');
+            spanPhone.innerText = contact.current.phone;
+            console.log(contact.current.phone);
+            rowForPhone.append(spanPhone);
+            div.append(rowForPhone);
 
-let inputFieldEmail = document.createElement('input');
-inputFieldEmail.setAttribute('type', 'text');
-inputFieldEmail.setAttribute('value', '');
-inputFieldEmail.setAttribute('id', 'email');
-inputFieldEmail.setAttribute('placeholder', 'Skriv in din email')
-inputFieldEmail.setAttribute('class', 'submit');
-rowForEmail.append(inputFieldEmail);
+            let rowForEmail = document.createElement('row');
+            rowForEmail.setAttribute('class', 'row-for-email-contacts');
 
-let buttonMoreEmail = document.createElement('button');
-buttonMoreEmail.innerHTML = '+';
-buttonMoreEmail.setAttribute('class', 'btn-add-more-email');
-rowForEmail.append(buttonMoreEmail);
+            let iEmail = document.createElement('i');
+            iEmail.setAttribute('class', 'fas fa-envelope');
+            rowForEmail.append(iEmail);
 
-let button = document.createElement('button');
-button.innerHTML = 'Lägg till kontakt';
-button.setAttribute('class', 'btn-add-contact')
-document.body.append(button)
+            let spanEmail = document.createElement('span');
+            spanEmail.setAttribute('class', 'span-email');
+            spanEmail.innerText = contact.current.email;
+            rowForEmail.append(spanEmail);
+            div.append(rowForEmail);
 
+            let row = document.createElement('row');
+            row.setAttribute('class', 'row-for-buttons');
+            let historyButton = document.createElement('button');
+            historyButton.setAttribute('data-contactid', contact.id);
+            historyButton.setAttribute('class', 'btn-history');
+            historyButton.innerHTML = 'Visa kontakt';
+            row.append(historyButton);
 
-// let div = document.createElement('div');
-// div.setAttribute('class', 'div-css')
-// body.append(div);
-// let ul = document.createElement('ul');
-// ul.setAttribute('class', 'ul-list');
-// div.append(ul);
-
-
-// let person = {
-//     name: '',
-//     phone: [],
-//     number: []
-// }
-
-
-
-
-
-// const userPrototype = {
-
-//     myStuff() {
-
-
-//         window.addEventListener('click', e => {
-//             if (e.target.closest('.btn-add-name')) {
-//                 let valOfInput = document.querySelectorAll('input[value=""]')
-//                 let valOfInputIdName = valOfInput[0].value;
-//                 console.log(valOfInputIdName, 'valof')
-//                 if (valOfInputIdName === '') {
-//                     let person = new User();
-//                     console.log(person, 'person')
-
-//                 }
-
-// const myObj = [].reduce.call(valOfInput, (acc, cur) => {
-//     acc[cur.id] = cur.value;
-//     return acc;
-// }, {});
-// let person = new User(...myObj.name);
-
-// localStorage.setItem('contact', JSON.stringify(arrayWrapper));
-// }
-// if (e.target.closest('.btn-add-more-phone')) {
-//     let valOfPhoneInput = document.querySelector('#phone').value;
-//     arrayWrapper.push(valOfPhoneInput);
-//     console.log(valOfPhoneInput, 'hej')
-//     console.log(arrayWrapper, 'jdal');
-
-// }
-
-
-//         });
-//     }
-// }
-
-
-// valOfInput.forEach((val, i) => {
-//     myObj[val[i]] = val[i].value;
-// for (let i = 0; i < valOfInput.length; i++) {
-//     myObj[valOfInput[i].id] = valOfInput[i].value;
-//     console.log(myObj, 'objekt')
-// }
-
-// let arr = [];
-// for (key in myObj) {
-//     if (myObj.hasOwnProperty(key)) {
-//         arr.push(key, myObj[key])
-//         console.log(arr.join(''))
-//     }
-// }
-// for (let [key, val] of Object.entries(myObj)) {
-//     keyAndVal = [key, val]
-//     console.log(keyAndVal, 'mythings')
-// }
-// let li = document.createElement('li');
-// li.setAttribute('class', 'li-list');
-// li.append(myObj);
-// ul.append(li);
-
-// let myLi = val.value;
-// });
-//             }
-//         });
-//     },
-
-// }
-
-
-
-
-
-// function User(name, email = [], phone = []) {
-//     let newInstance = Object.create(userPrototype);
-//     newInstance.name = name;
-//     newInstance.email = email instanceof Array ? email : [email];
-//     newInstance.phone = phone instanceof Array ? phone : [phone];
-//     return newInstance;
-// }
-
-
-// userPrototype.myStuff()
+            let removeButton = document.createElement('button');
+            removeButton.setAttribute('data-contactid', contact.id);
+            removeButton.setAttribute('class', 'btn-delete');
+            removeButton.innerHTML = 'Ta bort kontakt';
+            row.append(removeButton);
+            div.append(row);
+            this.container.append(div);
+        });
+    }
+}
