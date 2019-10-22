@@ -64,7 +64,6 @@ class Contacts extends App {
             let spanPhone = document.createElement('span');
             spanPhone.setAttribute('class', 'span-phone');
             spanPhone.innerText = contact.current.phone;
-            console.log(contact.current.phone);
             rowForPhone.append(spanPhone);
             div.append(rowForPhone);
 
