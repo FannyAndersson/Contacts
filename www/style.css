@@ -4,12 +4,18 @@
     justify-content: center;
 }
 
+#div-for-inputs {
+    padding: 19px;
+}
+
 .div-wrapper {
     border: 1px solid;
-    width: 50%;
+    width: 100%;
+    align-items: center;
+    height: 43px;
     justify-content: center;
     display: flex;
-    background-color: #f5cdc1;
+    background-color: #4c8cba;
     border: none;
 }
 
@@ -17,17 +23,43 @@
     color: white;
 }
 
-.form {
+.contacts-section {
+    margin-top: 50px;
+}
+
+.form,
+.section,
+.contacts-section {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.container {
-    border: 1px solid;
+.form-container {
+    border-width: 2px;
     width: 50%;
-    border-top: none;
-    border-color: #e8e4e3;
+    border: 2px solid #4c8cba;
+}
+
+.container {
+    width: 50%;
+}
+
+.name-form {
+    width: 37%;
+    height: 26px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    display: block;
+    margin-top: 10px;
 }
 
 .submit {
@@ -45,22 +77,40 @@
     margin-bottom: 15px;
 }
 
-.label {
+.name-label {
+    margin-top: 11px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    margin-left: 12px;
+}
+
+.label-phone {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 12px;
+}
+
+.label-email {
     display: block;
     margin-left: 15px;
     margin-bottom: 5px;
+    margin-left: 12px;
+}
+
+.icon-phone {
+    margin-left: 20px;
 }
 
 .btn-add-name {
     display: block;
-    background-color: #f5cdc1;
+    background-color: #d2d4d9;
     margin-left: 15px;
     width: 25%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1;
-    color: #555;
+    color: #ffffff;
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -70,12 +120,277 @@
 
 .btn-add-more-phone,
 .btn-add-more-email {
-    width: 4%;
-    height: 30px;
+    border: none;
+}
+
+.container-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.span-name {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    padding: 10px;
+    margin-top: -14px;
+}
+
+.span-phone,
+.span-email {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    padding: 10px;
+    margin-top: -11px;
+}
+
+.div-display-container {
+    padding: 27px;
+}
+
+.div-display-container:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+.span-name {
+    font-size: 23px;
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+    display: grid;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.close-btn-modal,
+.edited-btn-modal {
+    float: right;
+    width: 4.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+
+.close-btn-modal:hover,
+.edited-btn-modal:hover {
+    background-color: darkgray;
+}
+
+.submit-more-phone,
+.submit-more-email {
+    display: block;
+    width: 37%;
+    height: 26px;
     padding: 6px 12px;
     font-size: 14px;
-    background-color: #f5cdc1;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-left: 10px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+#plus-phone,
+#plus-email {
+    color: green;
+}
+
+.edit-contact-modal {
+    border: none;
+    margin-bottom: 13px;
+    background-color: #4c8cba;
+    color: white;
+    border-radius: 8%;
+    width: 13%;
+    font-size: 13px;
+    margin-left: auto;
+}
+
+.row-for-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-for-name {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.btn-history {
+    background-color: #4c8cba;
+    width: 14%;
+    height: 28px;
+    color: white;
+    border-radius: 8%;
+    font-size: 13px;
+}
+
+.btn-delete {
+    background-color: red;
+    border: none;
+    width: 14%;
+    height: 28px;
+    color: white;
+    border-radius: 8%;
+}
+
+.div-wrapper-contacts {
+    border: 1px solid;
+    width: 100%;
+    align-items: center;
+    height: 26px;
+    justify-content: center;
+    display: flex;
+    background-color: #4c8cba;
+    border: none;
+}
+
+.div-display-container-history {
+    padding: 26px;
+    background-color: #e9eef2;
+}
+
+#btn-goback {
+    background-color: #4c8cba;
+    width: 14%;
+    height: 32px;
+    color: white;
+    border-radius: 8%;
+    margin-left: auto;
+}
+
+.row-btn-goback,
+.row-reset-button {
+    display: flex;
+}
+
+.history-div {
+    padding: 17px;
+}
+
+.history-div:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+#history-section {
+    margin-top: 50px;
+}
+
+#btn-reset {
+    background-color: #c4c4c4;
+    width: 14%;
+    height: 32px;
+    border-radius: 8%;
+    margin-left: auto;
+}
+
+.modal-content {
+    width: 40%;
+    border: 5px solid;
+    border-color: #4c8cba;
+}
+
+.edited-btn-modal {
+    background-color: #28a745;
+    color: #ffffff;
+    width: 22%;
+    height: 39px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.close-btn-modal {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 25px;
+}
+
+.row-for-phone {
+    display: flex;
+    margin-bottom: 27px;
+}
+
+.row-for-email {
+    display: flex;
+    margin-bottom: 8px;
+    margin-left: 21px;
+}
+
+.row-for-name-form {
+    margin-left: 21px;
+    margin-bottom: 8px;
+}
+
+.row-for-email-contacts {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.row-for-phonenumber {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.label-email-modal,
+.label-phone-modal {
+    margin-top: 11px;
+    margin-left: 12px;
+}
+
+.row-for-name-modal {
+    margin-left: 21px;
+}
+
+.row-for-phone-modal {
+    margin-left: 21px;
+    margin-bottom: 10px;
+}
+
+.row-for-email-modal {
+    margin-left: 21px;
+    margin-bottom: 10px;
+}
+
+.row-email-current-contact {
+    display: flex;
+}
+
+.row-phone-current-contact,
+.row-name-current-contact {
+    margin-bottom: 22px;
+    display: flex;
 }
