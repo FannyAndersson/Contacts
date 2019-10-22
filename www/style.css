@@ -1,0 +1,81 @@
+.div-for-heading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.div-wrapper {
+    border: 1px solid;
+    width: 50%;
+    justify-content: center;
+    display: flex;
+    background-color: #f5cdc1;
+    border: none;
+}
+
+.heading {
+    color: white;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    border: 1px solid;
+    width: 50%;
+    border-top: none;
+    border-color: #e8e4e3;
+}
+
+.submit {
+    width: 37%;
+    height: 26px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.label {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+.btn-add-name {
+    display: block;
+    background-color: #f5cdc1;
+    margin-left: 15px;
+    width: 25%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1;
+    color: #555;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-add-more-phone,
+.btn-add-more-email {
+    width: 4%;
+    height: 30px;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #f5cdc1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+}
